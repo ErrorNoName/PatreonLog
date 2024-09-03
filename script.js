@@ -35,24 +35,12 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
 });
 
 function fetchDataFromPastebin(url) {
-    const https = require('https');
-    return new Promise((resolve, reject) => {
-        https.get(url, (resp) => {
-            let data = '';
-
-            resp.on('data', (chunk) => {
-                data += chunk;
-            });
-
-            resp.on('end', () => {
-                resolve(data);
-            });
-
-        }).on("error", (err) => {
-            console.error("Erreur lors de la récupération des données de Pastebin:", err);
-            reject(err);
+    return fetch(url)
+        .then(response => response.text())
+        .catch(error => {
+            console.error("Erreur lors de la récupération des données de Pastebin:", error);
+            throw error;
         });
-    });
 }
 
 function parseUserData(data) {
@@ -106,7 +94,7 @@ function displaySoftware(userRoles, softwareConfig) {
         btn.addEventListener('click', function() {
             const url = this.getAttribute('data-url');
             // Launch the tool directly from the panel (example: open a URL in browser)
-            require('electron').shell.openExternal(url);
+            window.open(url, '_blank');
         });
     });
 
@@ -134,5 +122,5 @@ function simulateDownload(url, progressElement) {
         }
     }, 500); // Simulate download progress every 500ms
 
-    // In a real scenario, you would use a library like `electron-fetch` or `request` to download the file to a secure location.
+    // In a real scenario, you would use the Fetch API or another method to download the file.
 }
