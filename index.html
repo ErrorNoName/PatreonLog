@@ -1,39 +1,53 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patreon Software Manager</title>
+    <title>Eztopy Software</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="login-container">
-        <h1>Patreon Software Manager</h1>
-        <form id="login-form">
-            <input type="text" id="user-id" placeholder="ID Utilisateur" required>
-            <input type="password" id="token" placeholder="Token" required>
-            <button type="submit">Se connecter</button>
-        </form>
-    </div>
-
-    <div id="software-container" style="display: none;">
-        <h2>Bienvenue, <span id="user-name"></span>!</h2>
-        <p>Vos rôles : <span id="user-roles"></span></p>
-        <h3>Logiciels disponibles :</h3>
-        <ul id="software-list"></ul>
-        <button id="logout-button">Se déconnecter</button>
-    </div>
-
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <p id="modal-message"></p>
-            <div id="progress-bar" class="progress-bar">
-                <div class="progress"></div>
+    <div class="software-container">
+        <div class="sidebar">
+            <div class="logo">Eztopy</div>
+            <div class="menu-item" data-target="dashboard">Dashboard</div>
+            <div class="menu-item" data-target="tools">Tools</div>
+            <div class="menu-item" data-target="downloads">Downloads</div>
+            <div class="menu-item" data-target="settings">Settings</div>
+            <div class="menu-item" data-target="support">Support</div>
+        </div>
+        <div class="main-content">
+            <div id="dashboard" class="content-area active">
+                <h1 class="welcome-text">Welcome to Eztopy</h1>
+                <form class="login-form" id="loginForm">
+                    <div class="input-group">
+                        <input type="text" id="username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="token" placeholder="Token" required>
+                    </div>
+                    <button type="submit" class="login-btn">Login</button>
+                </form>
+                <div class="loading">Logging in...</div>
             </div>
-            <button id="modal-close">Fermer</button>
+            <div id="tools" class="content-area">
+                <h2>Available Tools</h2>
+                <div id="toolsList"></div>
+            </div>
+            <div id="downloads" class="content-area">
+                <h2>Downloads</h2>
+                <div id="downloadsList"></div>
+            </div>
+            <div id="settings" class="content-area">
+                <h2>Settings</h2>
+                <p>Settings options coming soon...</p>
+            </div>
+            <div id="support" class="content-area">
+                <h2>Support</h2>
+                <p>For support, please visit our <a href="https://www.patreon.com/Eztopy/shop/pour-boire-324846?source=storefront" target="_blank">Patreon</a>.</p>
+            </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
