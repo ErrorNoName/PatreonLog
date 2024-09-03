@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patreon Software Manager</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login-container">
+        <h1>Patreon Software Manager</h1>
+        <form id="login-form">
+            <input type="text" id="user-id" placeholder="ID Utilisateur" required>
+            <input type="password" id="token" placeholder="Token" required>
+            <button type="submit">Se connecter</button>
+        </form>
+    </div>
+
+    <div id="software-container" style="display: none;">
+        <h2>Bienvenue, <span id="user-name"></span>!</h2>
+        <p>Vos rôles : <span id="user-roles"></span></p>
+        <h3>Logiciels disponibles :</h3>
+        <ul id="software-list"></ul>
+        <button id="logout-button">Se déconnecter</button>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <p id="modal-message"></p>
+            <div id="progress-bar" class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <button id="modal-close">Fermer</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
